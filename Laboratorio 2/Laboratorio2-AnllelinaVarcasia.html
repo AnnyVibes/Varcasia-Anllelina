@@ -1,0 +1,69 @@
+<!-- si escribo html:5 se pone la estructura incial automatico -->
+<!-- ctrl + k + c es para comentar sin tener que escribir, ctrl + k + u quitar comentarios -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTP-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 2: Anllelina Varcasia</title>
+</head>
+
+<body>
+    <!-- Parte 1 -->
+    <p> ¿Qué es JavaScript y en qué se asemeja a Java? </p>
+    <p align="justify"> JavaScript es un lenguaje de programación usado mayormente en el desarrollo de páginas web
+        interactivas, ya que se ejecuta directamente en los navegadores. Una de sus características es que es un
+        lenguaje interpretado, lo que significa que el código se ejecuta línea por línea sin necesidad de ser compilado
+        previamente. Esto lo hace más flexible para probar y realizar cambios rápidos. Además, es de tipado dinámico,
+        por lo que no es necesario especificar qué tipo de dato tendrá una variable, y esta puede cambiar de tipo
+        durante la ejecución del programa.</p>
+    <p align="justify"> Las semejansas que presenta JAVA y JavaScript son que ambos lenguajes comparten una sintaxis
+        inspirada en C, lo
+        que hace que sus estructuras de control y uso de llaves sean bastante
+        parecidas. Además, los dos soportan la programación orientada a objetos.</p>
+    <!-- Etiqueta para escribir en javascript -->
+    <script>
+        // Parte 2
+        var a = 14;
+        var b = 2;
+        // Imprime los valores de a y b
+        console.log("Valor 1: " + a);
+        console.log("Valor 2: " + b);
+        // Inicio de las operaciones 
+        resultados = a + b
+        console.log("Suma:" + resultados);
+        resultados = a - b
+        console.log("Resta:" + resultados);
+        resultados = a * b;
+        console.log("Multiplicación: " + resultados);
+        resultados = a / b;
+        console.log("División: " + resultados);
+        //   Parte 3
+        let Luffy = "Bien dañao, "
+        let Nami = "con mi mono"
+        console.log(Luffy + Nami) // concatenar significa unir 
+        // Parte 4 
+        const Sanji = "Aqui nadie le va a pagar pasaje a ese ... "
+        const Zoro = 28
+        console.log(typeof Sanji + " " + typeof Zoro) // typeof para saber la el tipo de dato
+        // Parte 5 
+        let objeto = {
+            manzana: 17, pera: "Chambeador", fresa: true, uva: {}
+        }
+        // Parte 6
+        function parte6(numero) {
+            let suma = 0;
+            for (let a = 1; a < numero; a++) {
+                if (a % 3 === 0 || a % 5 === 0) {
+                    suma += a;
+                }
+            }
+            return suma;
+        }
+        let = resultado = parte6(20);
+        console.log("Numero entero de referencia: " + "20");
+        console.log("El resultado de la  suma de todos los números menores es: " + resultado);
+    </script>
+</body>
+</html>
