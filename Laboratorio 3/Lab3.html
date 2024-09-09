@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: match-parent;
+            margin: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center">Laboratorio #3: Problemas de Aplicación Usando JS</h1>
+    <h2>Nombre: Anllelina Varcasia <br> Cédula: 8-935-2039 <br> <br> Desarrollo </h2>
+    <!-- Problema 1 -->
+    <p style="font-size: 18px"><strong>Problema 1:</strong>Escribe un número y verifica si dicho número es un palíndromo
+        de doble base. Esto significa que el
+        número debe ser igual cuando se lee de izquierda a derecha y de derecha a izquierda, tanto en su forma decimal
+        (base 10) como en su forma binaria (base 2).</p>
+    <label for="numero1" style="font-size: 18px;"><strong>Ingresa un número:</strong></label>
+    <input style="width: 150px; height: 25px; font-size: 18px" type="number" id="numero1" min="0">
+    <button style="width: 100px; height: 30px; font-size: 18px" onclick="verificar()">Verificar</button>
+    <p id="resultado1"></p>
+    <script>
+        function verificar() {
+            const n = parseInt(document.getElementById('numero1').value, 10);
+            const p10 = n.toString(), p2 = n.toString(2);
+            document.getElementById('resultado1').textContent = isNaN(n) ?
+                'Por favor, ingresa un número.' :
+                (p10 === p10.split('').reverse().join('') ?
+                    (p2 === p2.split('').reverse().join('') ?
+                        `El número ${n} es un palíndromo en base 10 (${p10}) y en base 2 (${p2}).` :
+                        `El número ${n} es un palíndromo en base 10 (${p10}), pero no en base 2 (${p2}).`) :
+                    (p2 === p2.split('').reverse().join('') ?
+                        `El número ${n} no es un palíndromo en base 10 (${p10}), pero sí en base 2 (${p2}).` :
+                        `El número ${n} no es un palíndromo ni en base 10 (${p10}) ni en base 2 (${p2}).`)
+                );
+        }
+    </script>
+    <!-- Problema 2 -->
+    <p style="font-size: 18px"><strong>Problema 2:</strong> Escribe una cadena de letras y verifica su cantidad de
+        caracteres.</p>
+    <label for="cadena" style="font-size: 18px;"><strong>Ingresa cadena de letras:</strong></label>
+    <input style="width: 150px; height: 25px; font-size: 18px;" id="cadena" type="text">
+    <button style="width: 100px; height: 30px; font-size: 18px" onclick="verCar()">Verificar</button>
+    <p id="resultado2"></p>
+    <script>
+        function verCar() {
+            const t = document.getElementById('cadena').value.trim();
+            if (!t) return document.getElementById('resultado2').textContent = 'Por favor, agregue una cadena.';
+            if (!/^[a-zA-Z]+$/.test(t)) return document.getElementById('resultado2').textContent = 'Por favor, ingrese solo letras.';
+            const counts = [...t].reduce((acc, c) => (acc[c] = (acc[c] || 0) + 1, acc), {});
+            document.getElementById('resultado2').textContent = 'Contiene: ' + Object.entries(counts).map(([char, count]) => `${char} = ${count}`).join(', ');
+        }
+    </script>
+    <!-- Problema 3 -->
+    <p style="font-size: 18px"><strong>Problema 3:</strong> Escribe un año y verifica si es bisiesto.</p>
+    <label for="bisiesto" style="font-size: 18px;"><strong>Ingresa un año:</strong></label>
+    <input style="width: 150px; height: 25px; font-size: 18px;" id="bisiesto" type="number" min="0">
+    <button style="width: 100px; height: 30px; font-size: 18px" onclick="verCarBis()">Verificar</button>
+    <p id="resultado3"></p>
+    <script>
+        function verCarBis() {
+            const a = parseInt(document.getElementById('bisiesto').value, 10);
+            document.getElementById('resultado3').textContent = (a % 4 === 0 && (a % 100 !== 0 || a % 400 === 0)) ? `${a} es bisiesto.` : `${a} no es bisiesto.`;
+        }
+    </script>
+    <!-- Problema 4 -->
+    <p style="font-size: 18px"><strong>Problema 4:</strong> Escribe y mira la sumatoria de todos sus números primos
+        debajo de el.</p>
+    <label for="numero4" style="font-size: 18px;"><strong>Ingresa un número:</strong></label>
+    <input style="width: 150px; height: 25px; font-size: 18px;" id="numero4" type="number" min="0">
+    <button style="width: 100px; height: 30px; font-size: 18px" onclick="verCarPrim()">Verificar</button>
+    <p id="resultado4"></p>
+    <script>
+        function verCarPrim() {
+            const n = parseInt(document.getElementById('numero4').value, 10);
+            let suma = 0;
+            for (let i = 2; i <= n; i++) {
+                if (i > 1 && Array.from({ length: Math.sqrt(i) - 1 }, (_, j) => j + 2).every(x => i % x !== 0)) {
+                    suma += i;
+                }
+            }
+            document.getElementById('resultado4').textContent = `La sumatoria de primos debajo de ${n} es ${suma}.`;
+        }
+    </script>
+</body>
+
+</html>
