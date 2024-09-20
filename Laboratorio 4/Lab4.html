@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio 4</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: match-parent;
+                margin: 60px;
+            }
+        </style>
+</head>
+<body>
+    <h1 align="center">Laboratorio #4: Formulario sin usar evento submit</h1>
+    <h2>Nombre: Anllelina Varcasia <br> Cédula: 8-935-2039 <br> <br> Desarrollo </h2>
+    <main>
+        <label for="entrada" style="font-size: 25 px;">Escribe algo:</label>
+        <input type="text" id="entrada" style="width: 150px; height: 25px; font-size: 18px" placeholder="Empieza a escribir...">
+        <span id="resultado"></span>
+      </main>
+<script> 
+// Parte I: Implementación del formulario 
+const entrada = document.getElementById('entrada');
+    const resultado = document.getElementById('resultado');
+    entrada.addEventListener('input', function() {
+      const texto = entrada.value;
+      resultado.textContent = texto.split('').reverse().join('');
+    });
+</script>
+</body>
+</html>
