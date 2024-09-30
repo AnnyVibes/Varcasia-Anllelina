@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 5</title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            color: black;
+            font-family: "Lucida Sans", sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .laboratorio {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+        }
+
+        .formulario {
+            position: absolute;
+            top: 20%;
+            right: 25%;
+            background-color: #e5c0f3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .formulario label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .formulario input, .formulario select {
+            width: 100%;
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .formulario span {
+            font-size: 16px;
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Laboratorio #5: Formulario sin usar evento submit</h1>
+
+    <div class="container">
+        <div class="laboratorio">
+            <h2>Nombre: Anllelina Varcasia <br> Cédula: 8-935-2039</h2>
+        </div>
+
+        <div class="formulario">
+            <label for="entrada">Escribe algo:</label>
+            <input type="text" id="entrada" placeholder="Empieza a escribir...">
+            <span id="resultado"></span>
+
+            <label for="color">Selecciona el color del texto:</label>
+            <select id="color">
+                <option value="black">Negro</option>
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="purple">Púrpura</option>
+            </select>
+        </div>
+    </div>
+
+    <script> 
+        const entrada = document.getElementById('entrada');
+        const resultado = document.getElementById('resultado');
+        const colorSelect = document.getElementById('color');
+
+        entrada.addEventListener('input', function() {
+            const texto = entrada.value;
+            resultado.textContent = texto.split('').reverse().join('');
+        });
+
+        colorSelect.addEventListener('change', function() {
+            resultado.style.color = colorSelect.value;
+        });
+    </script>
+</body>
+</html>
